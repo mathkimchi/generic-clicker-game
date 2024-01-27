@@ -3,5 +3,5 @@ mod demos;
 use yew::*;
 
 fn main() {
-    Renderer::<demos::local_storage_demo::Loader>::new().render();
+    Renderer::<demos::local_storage_demo::App>::new().render();
 }
