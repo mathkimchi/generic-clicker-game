@@ -1,7 +1,7 @@
+use yew::Renderer;
+
 mod demos;
 
-use yew::*;
-
 fn main() {
-    Renderer::<demos::local_storage_demo::App>::new().render();
+    Renderer::<demos::constant_loop_demo::TimeDisplay>::new().render();
 }

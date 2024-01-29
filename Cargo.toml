@@ -13,6 +13,7 @@ yew = { git = "https://github.com/yewstack/yew/", features = ["csr"] }
 gloo-console = "0.3"
 gloo = "0.11"
 # lipsum = "0.9"
+chrono = "0.4"
 
 [dependencies.web-sys]
 version = "0.3"
