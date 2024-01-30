@@ -7,6 +7,7 @@ I keep thinking of gameplay that I want to include, but I am going to keep this 
 ## TODO
 
 - [ ] Add incrementation (the main gameplay)
+- [ ] Check if the game is thread safe
 - [ ] Add settings page
 - [ ] Autosave
 - [ ] Graphics (just images)
