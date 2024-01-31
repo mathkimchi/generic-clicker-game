@@ -1,7 +1,10 @@
 use gloo::storage::{LocalStorage, Storage};
 use yew::*;
 
-use crate::game_logic::{buy_helper, increment};
+use crate::{
+    game_logic::{buy_helper, buy_upgrade, increment},
+    upgrades::get_upgrade_list,
+};
 
 pub struct App;
 pub enum AppMessage {
@@ -24,10 +27,19 @@ impl Component for App {
         html! {
             <>
                 <p style="display: inline;"> {"Score: "} {LocalStorage::get("generic-clicker-game.points").unwrap_or(0)} </p>
-                <button onclick={move |_| {increment(); link.clone().send_message(AppMessage::Rerender)}}> {"Increment"} </button>
                 <br/>
                 <p style="display: inline;"> {"Helpers: "} {LocalStorage::get("generic-clicker-game.helpers").unwrap_or(0)} </p>
-                <button onclick={move |_| {buy_helper(); link1.clone().send_message(AppMessage::Rerender)}}> {"Buy Helper (+1pts/sec, -2pts)"} </button>
+                <ul>
+                { get_upgrade_list().into_iter().map(|upgrade| {
+                    let link = ctx.link().clone();
+                    let upgrade_clone = upgrade.clone();
+                    let onclick = move |_| {buy_upgrade(&upgrade_clone.clone()); link.clone().send_message(AppMessage::Rerender)};
+
+                    html! {
+                        <li><button {onclick}>{format!("{}", upgrade)}</button></li>
+                    }
+                }).collect::<Html>() }
+                </ul>
             </>
         }
     }

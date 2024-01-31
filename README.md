@@ -6,12 +6,13 @@ I keep thinking of gameplay that I want to include, but I am going to keep this 
 
 ## TODO
 
-- [ ] Add incrementation (the main gameplay)
+- [x] Add incrementation (the main gameplay)
+- [ ] Afk income
 - [ ] Check if the game is thread safe
 - [ ] Add settings page
-- [ ] Autosave
+- [x] Autosave
 - [ ] Graphics (just images)
-- [ ] Upgrades
+- [x] Upgrades
 - [ ] Prevent people from manually changing localstorage
   - It is a singleplayer game so it doesn't matter, but still interesting
 - [ ] Google analytics

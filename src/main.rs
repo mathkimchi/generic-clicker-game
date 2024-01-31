@@ -4,6 +4,7 @@ use yew::Renderer;
 mod demos;
 mod game_logic;
 mod game_page;
+mod upgrades;
 
 const MILLISEC_PER_UPDATE: u32 = 1000; // 1 sec = 1000 ms
 
