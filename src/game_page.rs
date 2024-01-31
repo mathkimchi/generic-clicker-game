@@ -1,10 +1,7 @@
 use gloo::storage::{LocalStorage, Storage};
 use yew::*;
 
-use crate::{
-    game_logic::{buy_helper, buy_upgrade, increment},
-    upgrades::get_upgrade_list,
-};
+use crate::{game_logic::buy_upgrade, upgrades::get_upgrade_list};
 
 pub struct App;
 pub enum AppMessage {
@@ -29,6 +26,8 @@ impl Component for App {
                 <p style="display: inline;"> {"Score: "} {LocalStorage::get("generic-clicker-game.points").unwrap_or(0)} </p>
                 <br/>
                 <p style="display: inline;"> {"Helpers: "} {LocalStorage::get("generic-clicker-game.helpers").unwrap_or(0)} </p>
+                <br/>
+                <p style="display: inline;"> {"Helper2s: "} {LocalStorage::get("generic-clicker-game.helper2s").unwrap_or(0)} </p>
                 <ul>
                 { get_upgrade_list().into_iter().map(|upgrade| {
                     let link = ctx.link().clone();

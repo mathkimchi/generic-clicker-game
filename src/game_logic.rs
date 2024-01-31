@@ -6,32 +6,23 @@ use crate::upgrades::{Upgrade, UpgradeItem};
 pub fn tick_logic() {
     // 1 tick = 1 second for now
 
-    let points_per_tick = LocalStorage::get("generic-clicker-game.helpers").unwrap_or(0);
+    // TODO: abstract this
+    // figure out to go bottom up or top bottom
 
-    let old_points = LocalStorage::get("generic-clicker-game.points").unwrap_or(0);
+    let points_per_tick_per_tick =
+        LocalStorage::get("generic-clicker-game.helper2s").unwrap_or(0i128);
 
-    let new_points = old_points + points_per_tick;
+    let old_points_per_tick = LocalStorage::get("generic-clicker-game.helpers").unwrap_or(0i128);
+
+    let new_points_per_tick = old_points_per_tick + points_per_tick_per_tick;
+
+    let _ = LocalStorage::set("generic-clicker-game.helpers", new_points_per_tick);
+
+    let old_points = LocalStorage::get("generic-clicker-game.points").unwrap_or(0i128);
+
+    let new_points = old_points + new_points_per_tick;
 
     let _ = LocalStorage::set("generic-clicker-game.points", new_points);
-}
-
-pub fn increment() {
-    let old_points = LocalStorage::get("generic-clicker-game.points").unwrap_or(0);
-    let _ = LocalStorage::set("generic-clicker-game.points", old_points + 1);
-}
-
-pub fn buy_helper() {
-    // TODO: abstract later
-
-    let old_points = LocalStorage::get("generic-clicker-game.points").unwrap_or(0);
-
-    if old_points >= 2 {
-        let _ = LocalStorage::set("generic-clicker-game.points", old_points - 2);
-        let old_helpers = LocalStorage::get("generic-clicker-game.helpers").unwrap_or(0);
-        let _ = LocalStorage::set("generic-clicker-game.helpers", old_helpers + 1);
-    } else {
-        log!("Too poor, can't buy (need at least 2 points)");
-    }
 }
 
 pub fn buy_upgrade(upgrade: &Upgrade) {
@@ -42,7 +33,7 @@ pub fn buy_upgrade(upgrade: &Upgrade) {
              storage_key,
              change,
          }| {
-            let current = LocalStorage::get(storage_key).unwrap_or(0);
+            let current = LocalStorage::get(storage_key).unwrap_or(0i128);
             let new = current + *change;
             new >= 0
         },
@@ -59,7 +50,7 @@ pub fn buy_upgrade(upgrade: &Upgrade) {
         change,
     } in &upgrade.items
     {
-        let current = LocalStorage::get(storage_key).unwrap_or(0);
+        let current = LocalStorage::get(storage_key).unwrap_or(0i128);
         let new = current + *change;
         let _ = LocalStorage::set(storage_key, new);
     }

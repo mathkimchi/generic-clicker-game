@@ -9,6 +9,7 @@ I keep thinking of gameplay that I want to include, but I am going to keep this 
 - [x] Add incrementation (the main gameplay)
 - [ ] Afk income
 - [ ] Check if the game is thread safe
+- [ ] Figure out what to do with max int limit
 - [ ] Add settings page
 - [x] Autosave
 - [ ] Graphics (just images)

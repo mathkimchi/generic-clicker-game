@@ -5,7 +5,8 @@ use std::fmt::Display;
 pub struct UpgradeItem {
     pub display_name: String,
     pub storage_key: String,
-    pub change: i32,
+    // pub is_change_positive: bool;
+    pub change: i128,
 }
 
 #[derive(Debug, Clone)]
@@ -41,6 +42,7 @@ impl Display for Upgrade {
 //     items: vec![],
 // }];
 
+// Might do factorial
 pub fn get_upgrade_list() -> Vec<Upgrade> {
     vec![
         Upgrade {
@@ -63,6 +65,21 @@ pub fn get_upgrade_list() -> Vec<Upgrade> {
                     display_name: "pts".to_string(),
                     storage_key: "generic-clicker-game.points".to_string(),
                     change: -2,
+                },
+            ],
+        },
+        Upgrade {
+            upgrade_name: "Buy Helper2".to_string(),
+            items: vec![
+                UpgradeItem {
+                    display_name: "pts/sec^2".to_string(),
+                    storage_key: "generic-clicker-game.helper2s".to_string(),
+                    change: 1,
+                },
+                UpgradeItem {
+                    display_name: "pts/sec".to_string(),
+                    storage_key: "generic-clicker-game.helpers".to_string(),
+                    change: -6,
                 },
             ],
         },
