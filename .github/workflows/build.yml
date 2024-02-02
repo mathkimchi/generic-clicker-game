@@ -9,7 +9,12 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
-            - uses: actions-rs/toolchain@v1 # This is an archived repo
+              
+            - name: Install latest nightly
+              uses: actions-rs/toolchain@v1 # This is an archived repo
+              with:
+                  toolchain: nightly
+
             - name: install wasm target
               run: rustup target add wasm32-unknown-unknown
             - name: install trunk
