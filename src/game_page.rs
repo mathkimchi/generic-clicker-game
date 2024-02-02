@@ -18,8 +18,6 @@ impl Component for App {
 
     fn view(&self, ctx: &yew::prelude::Context<Self>) -> Html {
         // using a button allows for players to spam enter, but I think that is fine
-        let link = ctx.link().clone();
-        let link1 = ctx.link().clone(); // FIXME: theres gotta be a less sketchy method
 
         html! {
             <>

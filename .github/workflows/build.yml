@@ -1,0 +1,20 @@
+name: Build on Deploy
+
+on: [push]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+            - name: install rustupx
+              #   No better way?
+              run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+            - name: install wasm target
+              run: rustup target add wasm32-unknown-unknown
+            - name: install trunk
+              run: cargo install --locked trunk
+            - run: chmod +x build.sh
+            - run: ./build.sh
