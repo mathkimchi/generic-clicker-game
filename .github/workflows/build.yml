@@ -9,15 +9,19 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
-              
+            - run: ls # for testing purposes
             - name: Install latest nightly
               uses: actions-rs/toolchain@v1 # This is an archived repo
               with:
                   toolchain: nightly
-
             - name: install wasm target
               run: rustup target add wasm32-unknown-unknown
-            - name: install trunk
-              run: cargo install --locked trunk
+            - name: install trunk # idk, this does not seem to be thoroughly tested
+              uses: jetli/trunk-action@v0.4.0
+              with:
+                # Optional version of trunk to install(eg. 'v0.16.0', 'latest')
+                version: 'latest'
+            - run: ls # for testing purposes
             - run: chmod +x build.sh
             - run: ./build.sh
+            - run: ls # for testing purposes
