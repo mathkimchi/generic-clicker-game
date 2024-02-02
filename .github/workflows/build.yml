@@ -9,9 +9,7 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
-            - name: install rustupx
-              #   No better way?
-              run: curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+            - uses: actions-rs/toolchain@v1 # This is an archived repo
             - name: install wasm target
               run: rustup target add wasm32-unknown-unknown
             - name: install trunk
