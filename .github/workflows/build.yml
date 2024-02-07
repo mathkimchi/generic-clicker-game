@@ -1,4 +1,5 @@
-name: Build on Deploy
+# FIXME
+name: Build on Deploy 
 
 on: [push]
 
@@ -9,7 +10,7 @@ jobs:
         steps:
             - name: checkout
               uses: actions/checkout@v4
-            - run: ls # for testing purposes
+            - run: ls -a # for testing purposes
             - name: Install latest nightly
               uses: actions-rs/toolchain@v1 # This is an archived repo
               with:
@@ -21,7 +22,7 @@ jobs:
               with:
                 # Optional version of trunk to install(eg. 'v0.16.0', 'latest')
                 version: 'latest'
-            - run: ls # for testing purposes
+            - run: ls -a # for testing purposes
             - run: chmod +x build.sh
             - run: ./build.sh
-            - run: ls # for testing purposes
+            - run: ls -a # for testing purposes
