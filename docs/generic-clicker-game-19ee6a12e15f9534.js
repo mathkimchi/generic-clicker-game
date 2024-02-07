@@ -684,16 +684,16 @@ function __wbg_get_imports() {
     imports.wbg.__wbindgen_throw = function(arg0, arg1) {
         throw new Error(getStringFromWasm0(arg0, arg1));
     };
-    imports.wbg.__wbindgen_closure_wrapper1721 = function(arg0, arg1, arg2) {
-        const ret = makeClosure(arg0, arg1, 151, __wbg_adapter_22);
+    imports.wbg.__wbindgen_closure_wrapper1835 = function(arg0, arg1, arg2) {
+        const ret = makeClosure(arg0, arg1, 182, __wbg_adapter_22);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper3086 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 244, __wbg_adapter_25);
+    imports.wbg.__wbindgen_closure_wrapper3217 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 281, __wbg_adapter_25);
         return addHeapObject(ret);
     };
-    imports.wbg.__wbindgen_closure_wrapper3356 = function(arg0, arg1, arg2) {
-        const ret = makeMutClosure(arg0, arg1, 256, __wbg_adapter_28);
+    imports.wbg.__wbindgen_closure_wrapper3487 = function(arg0, arg1, arg2) {
+        const ret = makeMutClosure(arg0, arg1, 293, __wbg_adapter_28);
         return addHeapObject(ret);
     };
 
@@ -735,7 +735,7 @@ async function __wbg_init(input) {
     if (wasm !== undefined) return wasm;
 
     if (typeof input === 'undefined') {
-        input = new URL('generic-clicker-game-630d5f100d6e5d76_bg.wasm', import.meta.url);
+        input = new URL('generic-clicker-game-19ee6a12e15f9534_bg.wasm', import.meta.url);
     }
     const imports = __wbg_get_imports();
 

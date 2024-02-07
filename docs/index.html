@@ -1,4 +1,5 @@
 <!DOCTYPE html><html lang="en"><head>
+    <title>Generic Clicker Game</title>
     <style>
         /* Dark */
         :not(:root[data-theme="light"]) {
@@ -14,20 +15,75 @@
         body {
             background-color: var(--background);
             color: var(--text);
+            font-size: large;
+
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            /* align-items: flex-start; */
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-between; */
+
+            /* margin: 2px; */
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border: 1px solid rgb(166, 146, 34);
+            padding: 4px;
+            margin: 2px;
+        }
+
+        .horizontal-divider {
+            border-right: 1px solid rgba(166, 146, 34, 0.553);
+        }
+
+        .lists {
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            justify-content: space-between;
+
+            border: 1px solid rgb(166, 146, 34);
+            padding: 4px;
+            margin: 2px;
+
+            overflow-y: auto;
+            max-height: 50%;
+        }
+
+        .lists ul {
+            position: relative;
+            left: -3ch;
+        }
+
+        .obtainable-upgrade {
+            color: yellow;
+        }
+
+        .unobtained-upgrade {
+            color: gray;
         }
     </style>
     <base href="/">
 
-<link rel="preload" href="/generic-clicker-game-630d5f100d6e5d76_bg.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" integrity="sha384-HM1OAva_aixthup9km8qXbXCLoiMtainQ1CcLxziWqDKV_jXKH5rGuJPdtqrwFtl">
-<link rel="modulepreload" href="/generic-clicker-game-630d5f100d6e5d76.js" crossorigin="anonymous" integrity="sha384-Nw7DlCUDzlG3p-EhZWuW7VJbq7R_rrO4So3EWL_oyhmPSc89nUxjpqeNvMF26woW"></head>
+<link rel="preload" href="/generic-clicker-game-19ee6a12e15f9534_bg.wasm" as="fetch" type="application/wasm" crossorigin="anonymous" integrity="sha384-ubLE9RLB5LAAfazGPZl62VU9zelNcZHeHG2xrxZ_Mr2qJv57I4nPFhMpHca_oWGW">
+<link rel="modulepreload" href="/generic-clicker-game-19ee6a12e15f9534.js" crossorigin="anonymous" integrity="sha384-PpMZTuNTy8eyHd4ww30klNPrZBsHVqgVNBrUD93bxmuLmwluSiBlnh3jC9wHpjoB"></head>
 
 <body>
 
 
 
 <script type="module">
-import init, * as bindings from '/generic-clicker-game-630d5f100d6e5d76.js';
-init('/generic-clicker-game-630d5f100d6e5d76_bg.wasm');
+import init, * as bindings from '/generic-clicker-game-19ee6a12e15f9534.js';
+init('/generic-clicker-game-19ee6a12e15f9534_bg.wasm');
 window.wasmBindings = bindings;
 
 </script><script>"use strict";

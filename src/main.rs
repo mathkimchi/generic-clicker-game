@@ -14,7 +14,7 @@ fn start_game() {
 
     Interval::new(MILLISEC_PER_UPDATE, move || {
         game_logic::tick_logic();
-        app.send_message(game_page::AppMessage::Rerender);
+        app.send_message(game_page::AppMessage::Update);
     })
     .forget();
 }

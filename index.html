@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <title>Generic Clicker Game</title>
     <style>
         /* Dark */
         :not(:root[data-theme="light"]) {
@@ -17,6 +18,61 @@
         body {
             background-color: var(--background);
             color: var(--text);
+            font-size: large;
+
+            display: flex;
+            flex-direction: row;
+            align-content: center;
+            /* align-items: flex-start; */
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: space-between; */
+
+            /* margin: 2px; */
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            border: 1px solid rgb(166, 146, 34);
+            padding: 4px;
+            margin: 2px;
+        }
+
+        .horizontal-divider {
+            border-right: 1px solid rgba(166, 146, 34, 0.553);
+        }
+
+        .lists {
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+            justify-content: space-between;
+
+            border: 1px solid rgb(166, 146, 34);
+            padding: 4px;
+            margin: 2px;
+
+            overflow-y: auto;
+            max-height: 50%;
+        }
+
+        .lists ul {
+            position: relative;
+            left: -3ch;
+        }
+
+        .obtainable-upgrade {
+            color: yellow;
+        }
+
+        .unobtained-upgrade {
+            color: gray;
         }
     </style>
     <base data-trunk-public-url />
